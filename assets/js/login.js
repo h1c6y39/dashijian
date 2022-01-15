@@ -58,17 +58,41 @@ $(function () {
       url: '/api/login',
       method: 'POST',
       // 快速获取表单中的数据
-      data: $(this).serialize(),
+      data: $(this).serialize(),//sereialize 序列化
       success: function (res) {
         if (res.status !== 0) {
           return layer.msg('登录失败！')
         }
         layer.msg('登录成功！')
         // 将登录成功得到的 token 字符串，保存到 localStorage 中
-        localStorage.setItem('token', res.token)
+        localStorage.setItem('token', res.token)//localSotrage本地存储 永久性
         // 跳转到后台主页
         location.href = 'index.html'
       }
     })
   })
+  // $('#form-login').submit(function (e) {
+
+  //   e.preventDefault
+  //   $.ajax({
+  //     url: '/api/login',
+  //     type: 'POST',
+  //     //快速获取表单中的数据
+  //     data: $(this).serialize(),,
+  //     success: function (res) {
+  //       if (res.status !== 0) {
+  //         return layer1.msg('登录失败')
+  //       }
+  //       layer.msg('登陆成功')
+  //       //将登陆成功的token字符串 保存到locaLstorage中
+  //       localStorage.setItem('token', res.token)
+  //       //跳转页面
+  //       location.href = 'index.html'
+  //     }
+
+  //   })
+  // })
+
+
+
 })
