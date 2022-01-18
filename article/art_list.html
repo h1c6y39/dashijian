@@ -17,7 +17,7 @@
     <div class="layui-card-header">文章列表</div>
     <div class="layui-card-body">
       <!-- 筛选区域 -->
-      <form class="layui-form" action="">
+      <form class="layui-form" id="form-search">
         <div class="layui-form-item layui-inline">
           <select name="cate_id"> </select>
         </div>
@@ -53,20 +53,10 @@
           </tr>
         </thead>
         <tbody>
-
-          <tr>
-            <td></td>
-            <td>2016-11-28</td>
-            <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            <td> <button class="layui-btn   layui-btn-xs btn-edit">编辑 </button>
-              <button class="layui-btn layui-btn-danger  layui-btn-xs btn-delete">删除</button>
-            </td>
-
-          </tr>
         </tbody>
       </table>
       <!-- 分页区域 -->
+      <div id="pageBox"></div>
     </div>
   </div>
 
@@ -75,15 +65,33 @@
   {{each data}}
   <tr>
   <td>{{$value.title}}</td>
+  <td>{{$value.cate_name}}</td>
   <td>{{$value.pub_date|dataFormat}}</td>
   <td>{{$value.state}}</td>
-  <td>{{$value.cate-name}}</td>
-  <td> <button class="layui-btn   layui-btn-xs btn-edit">编辑 </button>
-              <button class="layui-btn layui-btn-danger  layui-btn-xs btn-delete">删除</button>
-             </td>
-            </tr>
+  <td> 
+  <button class="layui-btn   layui-btn-xs btn-edit">编辑 </button>
+ <button class="layui-btn layui-btn-danger  layui-btn-xs btn-delete" data-id="{{$value.Id}}">删除</button>
+  </td>
+ </tr>
   {{/each}}
   </script>
+
+  <!-- 定义列表区域的数据 模板引擎 -->
+
+  <!-- <script type="text/html" id="list-table">
+        {{each data}}
+        <tr>
+            <td>{{$value.title}}</td>
+            <td>{{$value.cate_name}}</td>
+            <td>{{$value.pub_date|dataFormat}}</td>
+            <td>{{$value.state}}</td>
+            <td>
+                <button type="button" class="layui-btn  layui-btn-xs">修改</button>
+                <button type="button" data-id="{{$value.Id}}" id="CateDelete" class="layui-btn layui-btn-danger  layui-btn-xs">删除</button>
+            </td>
+        </tr>
+        {{/each}}
+    </script> -->
 
   <!-- 可选项的模板 -->
   <script type="text/html" id="tpl-cate">
